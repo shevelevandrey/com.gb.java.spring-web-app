@@ -36,13 +36,21 @@ public class UserPageHttpServlet extends HttpServlet {
 
         if (user != null) {
             resp.getWriter().println(String.format("<h1>Страница пользователя: %s.</h1>", user.getName()));
-            resp.getWriter().println(String.format("<p>Идентификатор: %s.</p>", user.getId()));
-            resp.getWriter().println(String.format("<p>Имя: %s.</p>", user.getName()));
+
+            resp.getWriter().println(String.format(
+                    "<table> " +
+                    "  <tr style=\"text-align: left;\"> " +
+                    "    <th>Идентификатор:</th> " +
+                    "    <th>%s</th> " +
+                    "  </tr> " +
+                    "  <tr style=\"text-align: left;\"> " +
+                    "    <th>Имя пользователя:</th> " +
+                    "    <th>%s</th> " +
+                    "  </tr> " +
+                    "</table>", user.getId(), user.getName()));
         } else {
             resp.getWriter().println(String.format("<h1>Пользователь с идентификатором: %s - не найден!</h1>", userId));
         }
-
-
 
     }
 }

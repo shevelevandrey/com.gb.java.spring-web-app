@@ -26,14 +26,14 @@ public class UsersHttpServlet extends HttpServlet {
         resp.getWriter().println(
                 "<table>" +
                 "  <tr>\n" +
-                "    <th>id</th>\n" +
-                "    <th>name</th>\n" +
+                "    <th>Идентификатор</th>\n" +
+                "    <th>Имя пользователя</th>\n" +
                 "  </tr>");
 
         for (User user: userStorage.findAll()) {
             resp.getWriter().println(String.format(
                     "  <tr style=\"text-align: left;\">\n" +
-                    "    <th>%s</th>\n" +
+                    "    <th style=\"text-align: center;\">%s</th>\n" +
                     "    <th>%s</th>\n" +
                     "  </tr>", user.getId(), user.getName()));
         }
