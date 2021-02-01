@@ -29,6 +29,7 @@ public class UserPageHttpServlet extends HttpServlet {
             userId = Long.valueOf(req.getParameter("id"));
         } catch (Exception e) {
             resp.getWriter().println("<h1>Введён некорректный идентификатор пользователя!</h1>");
+            resp.sendError(500);
             return;
         }
 
@@ -50,6 +51,7 @@ public class UserPageHttpServlet extends HttpServlet {
                     "</table>", user.getId(), user.getName()));
         } else {
             resp.getWriter().println(String.format("<h1>Пользователь с идентификатором: %s - не найден!</h1>", userId));
+            resp.sendError(404);
         }
 
     }
